@@ -181,7 +181,8 @@ If a question is unrelated to health insurance, politely say:
 "I'm here specifically for health insurance queries. For other concerns, please reach out to our general support line."
 
 Keep answers concise, friendly, and clear. Use bullet points where helpful. 
-Do not invent specific policy numbers or amounts — direct users to their policy document or member portal."""
+Do not invent specific policy numbers or amounts — direct users to their policy document or member portal.
+If unsure, say I do not have enough information — please raise a ticket. Never invent specific amounts or policy numbers."""
 
     messages = [{"role": "system", "content": system_prompt}]
     for msg in chat_history[-6:]:
@@ -192,7 +193,7 @@ Do not invent specific policy numbers or amounts — direct users to their polic
         model="llama-3.1-8b-instant",
         messages=messages,
         max_tokens=500,
-        temperature=0.3
+        temperature=0.1
     )
     return response.choices[0].message.content
 
@@ -228,6 +229,8 @@ if "ticket_raised" not in st.session_state:
     st.session_state.ticket_raised = False
 if "suggested" not in st.session_state:
     st.session_state.suggested = None
+if "last_ticket_id" not in st.session_state:
+    st.session_state.last_ticket_id = None
 
 faqs = load_knowledge_base()
 
@@ -299,7 +302,7 @@ for msg in st.session_state.messages:
             if msg["label"] == "KB":
                 st.markdown('<span class="source-kb">✅ Knowledge Base</span>', unsafe_allow_html=True)
             elif msg["label"] == "AI":
-                st.markdown('<span class="source-ai">🤖 AI Assistant</span>', unsafe_allow_html=True)
+                st.markdown('<span class="source-ai">🌐 Answered from Web / AI — verify with your official policy documents</span>', unsafe_allow_html=True)
 
 # ── Clear chat button (only when there are messages) ──────────
 if st.session_state.messages:
@@ -332,7 +335,7 @@ if user_input:
             with st.spinner("Thinking…"):
                 ai_answer = ask_groq(user_input, st.session_state.messages)
             st.markdown(ai_answer)
-            st.markdown('<span class="source-ai">🤖 AI Assistant</span>', unsafe_allow_html=True)
+            st.markdown('<span class="source-ai">🌐 Answered from Web / AI — verify with your official policy documents</span>', unsafe_allow_html=True)
         st.session_state.messages.append(
             {"role": "assistant", "content": ai_answer, "label": "AI"}
         )
@@ -353,7 +356,35 @@ if st.session_state.messages:
         if st.button("Raise a Support Ticket →", use_container_width=True, type="primary"):
             ticket_id = create_ticket(st.session_state.messages)
             st.session_state.ticket_raised = True
+            st.session_state.last_ticket_id = ticket_id
             st.success(f"✅ Ticket #{ticket_id} raised! Our team will contact you within 24 hours.")
             st.balloons()
     else:
         st.success("🎫 Your ticket is open. Our team will reach out to you soon.")
+
+        resolution = st.text_area("Resolve ticket — enter resolution summary", key="resolution_input")
+        if st.button("Resolve and Update KB", key="resolve_btn"):
+            if resolution.strip():
+                with open("knowledge_base.json", "r") as f:
+                    kb_data = json.load(f)
+                new_id = max(entry["id"] for entry in kb_data["faqs"]) + 1
+                kb_data["faqs"].append({
+                    "id": new_id,
+                    "question": f"Resolved ticket #{st.session_state.last_ticket_id}",
+                    "keywords": resolution.lower().split()[:6],
+                    "answer": resolution.strip(),
+                    "source": "resolved_ticket"
+                })
+                with open("knowledge_base.json", "w") as f:
+                    json.dump(kb_data, f, indent=2)
+                if st.session_state.last_ticket_id:
+                    conn = sqlite3.connect("tickets.db")
+                    conn.execute(
+                        "UPDATE tickets SET status = 'resolved' WHERE id = ?",
+                        (st.session_state.last_ticket_id,)
+                    )
+                    conn.commit()
+                    conn.close()
+                st.success(f"✅ Ticket #{st.session_state.last_ticket_id} marked resolved and KB updated.")
+            else:
+                st.warning("Please enter a resolution summary before submitting.")
