@@ -3,14 +3,14 @@
     {
       "id": 1,
       "question": "What is my deductible?",
-      "keywords": ["deductible", "annual deductible", "amount", "pay before"],
+      "keywords": ["deductible", "annual deductible", "pay before", "out of pocket"],
       "answer": "Your annual deductible is the amount you pay before your insurance kicks in. Refer to your policy document Section 3 for your specific amount.",
       "source": "KB"
     },
     {
       "id": 2,
       "question": "How do I file a claim?",
-      "keywords": ["file a claim", "submit claim", "claims", "hospital bill", "discharge"],
+      "keywords": ["file a claim", "submit claim", "claims", "hospital bill", "discharge", "reimbursement claim"],
       "answer": "Log into the member portal, go to Claims > Submit New Claim, and upload your hospital bill and discharge summary.",
       "source": "KB"
     },
@@ -31,15 +31,113 @@
     {
       "id": 5,
       "question": "How do I add a dependent to my plan?",
-      "keywords": ["dependent", "add member", "family", "spouse", "child"],
+      "keywords": ["dependent", "add member", "family", "spouse", "child", "add dependent"],
       "answer": "Log into the member portal and go to My Plan > Add Dependents. You can add a spouse or children. Changes take effect from the next billing cycle.",
       "source": "KB"
     },
     {
       "id": 6,
       "question": "What is the claim reimbursement timeline?",
-      "keywords": ["reimbursement", "timeline", "how long", "claim status", "days"],
+      "keywords": ["reimbursement", "timeline", "how long", "claim status", "days", "processing time"],
       "answer": "Claim reimbursements are typically processed within 7–10 working days after all documents are submitted. You will receive an SMS and email confirmation.",
+      "source": "KB"
+    },
+    {
+      "id": 7,
+      "question": "What documents are required for a claim?",
+      "keywords": ["documents", "required", "claim documents", "what do I need", "paperwork", "submit"],
+      "answer": "You need: original hospital bills, discharge summary, doctor's prescription, diagnostic reports, and a filled claim form. For accidents, a medico-legal certificate is also required.",
+      "source": "KB"
+    },
+    {
+      "id": 8,
+      "question": "Is maternity covered under my plan?",
+      "keywords": ["maternity", "pregnancy", "delivery", "childbirth", "newborn", "prenatal"],
+      "answer": "Maternity cover is available under the Family Plus plan with a 9-month waiting period. It covers delivery expenses up to ₹50,000 and newborn care for the first 30 days.",
+      "source": "KB"
+    },
+    {
+      "id": 9,
+      "question": "What is the waiting period for pre-existing diseases?",
+      "keywords": ["waiting period", "pre-existing", "existing disease", "prior condition", "PED"],
+      "answer": "Pre-existing diseases are covered after a 36-month waiting period from the policy start date. Specific conditions like diabetes and hypertension may have different terms — check your policy schedule.",
+      "source": "KB"
+    },
+    {
+      "id": 10,
+      "question": "How do I find a network hospital?",
+      "keywords": ["network hospital", "cashless hospital", "empanelled", "find hospital", "hospital list"],
+      "answer": "Visit our website and go to Find a Hospital under the Members section. You can search by city, pincode, or specialisation. You can also call 1800-XXX-XXXX for assistance.",
+      "source": "KB"
+    },
+    {
+      "id": 11,
+      "question": "What is the sum insured under my policy?",
+      "keywords": ["sum insured", "coverage amount", "maximum coverage", "insured amount", "policy limit"],
+      "answer": "Your sum insured is mentioned on the first page of your policy document. It resets every policy year. You can also check it by logging into the member portal under My Policy.",
+      "source": "KB"
+    },
+    {
+      "id": 12,
+      "question": "How do I renew my policy?",
+      "keywords": ["renew", "renewal", "policy renewal", "expiry", "expired", "extend policy"],
+      "answer": "Log into the member portal 30 days before expiry and click Renew Policy. You can also call our helpline or visit any branch. Renewing on time avoids loss of no-claim bonus.",
+      "source": "KB"
+    },
+    {
+      "id": 13,
+      "question": "What is a no-claim bonus?",
+      "keywords": ["no claim bonus", "NCB", "bonus", "discount", "no claim", "reward"],
+      "answer": "If you don't make any claim in a policy year, you earn a No-Claim Bonus — typically a 10–50% increase in your sum insured at no extra premium. It accumulates each claim-free year.",
+      "source": "KB"
+    },
+    {
+      "id": 14,
+      "question": "Are dental treatments covered?",
+      "keywords": ["dental", "teeth", "tooth", "dentist", "oral", "dental treatment"],
+      "answer": "Routine dental treatments are not covered under standard plans. However, dental treatment required due to an accident or hospitalisation of more than 24 hours is covered.",
+      "source": "KB"
+    },
+    {
+      "id": 15,
+      "question": "How do I contact customer support?",
+      "keywords": ["contact", "helpline", "customer support", "call", "email", "reach", "speak to agent"],
+      "answer": "You can reach us 24/7 at our helpline 1800-XXX-XXXX (toll-free), email support@healthsure.com, or chat live on our website. For urgent hospitalisation, call our emergency desk directly.",
+      "source": "KB"
+    },
+    {
+      "id": 16,
+      "question": "Is mental health treatment covered?",
+      "keywords": ["mental health", "psychiatrist", "therapy", "counselling", "depression", "anxiety", "psychological"],
+      "answer": "Yes, mental health treatment is covered as per IRDAI guidelines. This includes inpatient psychiatric care, day care procedures, and outpatient consultations up to the limits in your plan.",
+      "source": "KB"
+    },
+    {
+      "id": 17,
+      "question": "What is a co-payment?",
+      "keywords": ["co-payment", "copay", "co-pay", "share of cost", "percentage pay"],
+      "answer": "Co-payment means you pay a fixed percentage of each claim and we cover the rest. For example, a 10% co-pay on a ₹1,00,000 bill means you pay ₹10,000 and we pay ₹90,000. Check your policy for your co-pay clause.",
+      "source": "KB"
+    },
+    {
+      "id": 18,
+      "question": "Are ambulance charges covered?",
+      "keywords": ["ambulance", "emergency transport", "ambulance charges", "transport"],
+      "answer": "Yes, ambulance charges are covered up to ₹2,000 per hospitalisation for road ambulance. Air ambulance coverage is available only under Premium and Elite plans.",
+      "source": "KB"
+    },
+    {
+      "id": 19,
+      "question": "Can I port my policy from another insurer?",
+      "keywords": ["port", "porting", "switch insurer", "transfer policy", "change insurance company"],
+      "answer": "Yes, you can port your existing health policy to HealthSure without losing your accumulated waiting period credits. Apply for porting at least 45 days before your current policy expires.",
+      "source": "KB"
+    },
+    {
+      "id": 20,
+      "question": "What is daycare treatment?",
+      "keywords": ["daycare", "day care", "less than 24 hours", "short procedure", "OPD procedure"],
+      "answer": "Daycare treatments are medical procedures that require less than 24 hours of hospitalisation due to advanced technology — like cataract surgery or chemotherapy. These are covered under all our plans.",
       "source": "KB"
     }
   ]
