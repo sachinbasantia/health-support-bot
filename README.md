@@ -3,7 +3,7 @@
 An AI-powered customer support chatbot for a health insurance company, built as part of the DevX Labs coding assessment.
 
 ## 🎥 Demo Video
-[Watch the demo](#)<(https://drive.google.com/drive/folders/1-B1OQxEuOJFPL8y4BrTRF8foDmmQUcNx)>
+[Watch the demo](#)<https://drive.google.com/drive/folders/1-B1OQxEuOJFPL8y4BrTRF8foDmmQUcNx)>
 
 ## 🚀 What It Does
 
