@@ -1,0 +1,46 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question": "What is my deductible?",
+      "keywords": ["deductible", "annual deductible", "amount", "pay before"],
+      "answer": "Your annual deductible is the amount you pay before your insurance kicks in. Refer to your policy document Section 3 for your specific amount.",
+      "source": "KB"
+    },
+    {
+      "id": 2,
+      "question": "How do I file a claim?",
+      "keywords": ["file a claim", "submit claim", "claims", "hospital bill", "discharge"],
+      "answer": "Log into the member portal, go to Claims > Submit New Claim, and upload your hospital bill and discharge summary.",
+      "source": "KB"
+    },
+    {
+      "id": 3,
+      "question": "Is physiotherapy covered?",
+      "keywords": ["physiotherapy", "physio", "sessions", "wellness", "covered"],
+      "answer": "Physiotherapy is covered up to 20 sessions per year under the Wellness add-on plan. Check if your plan includes this add-on.",
+      "source": "KB"
+    },
+    {
+      "id": 4,
+      "question": "What is the cashless hospitalisation process?",
+      "keywords": ["cashless", "hospitalisation", "network hospital", "pre-authorisation", "insurance card"],
+      "answer": "Present your insurance card at any network hospital. The hospital will coordinate directly with us for pre-authorisation.",
+      "source": "KB"
+    },
+    {
+      "id": 5,
+      "question": "How do I add a dependent to my plan?",
+      "keywords": ["dependent", "add member", "family", "spouse", "child"],
+      "answer": "Log into the member portal and go to My Plan > Add Dependents. You can add a spouse or children. Changes take effect from the next billing cycle.",
+      "source": "KB"
+    },
+    {
+      "id": 6,
+      "question": "What is the claim reimbursement timeline?",
+      "keywords": ["reimbursement", "timeline", "how long", "claim status", "days"],
+      "answer": "Claim reimbursements are typically processed within 7–10 working days after all documents are submitted. You will receive an SMS and email confirmation.",
+      "source": "KB"
+    }
+  ]
+}
