@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Replit-specific
+.replit
+.local/
+replit.nix
+.upm/
+.pythonlibs/
+
+# Streamlit local config (runtime-generated)
+.streamlit/secrets.toml
+
+# Database (use a volume in production)
+tickets.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
