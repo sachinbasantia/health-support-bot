@@ -3,8 +3,8 @@
 An AI-powered customer support chatbot for a health insurance company, built as part of the DevX Labs coding assessment.
 
 ## 🎥 Demo Video
-[Watch the demo](https://drive.google.com/drive/folders/1-B1OQxEuOJFPL8y4BrTRF8foDmmQUcNx)
-
+[Watch the demo](#) <https://drive.google.com/drive/folders/1-B1OQxEuOJFPL8y4BrTRF8foDmmQUcNx>
+s
 ## 🚀 What It Does
 
 - Answers customer queries instantly from a built-in knowledge base
@@ -84,26 +84,29 @@ health-support-bot/
 ├── .dockerignore          # Docker ignore rules
 └── README.md              # This file
 
-## 📚 Knowledge Base Entries
-
-The KB includes 6 pre-loaded entries:
-- What is my deductible?
-- How do I file a claim?
-- Is physiotherapy covered?
-- What is the cashless hospitalisation process?
-- How do I add a dependent to my plan?
-- What is the claim reimbursement timeline?
-
 ## ⚠️ Known Limitations & Shortcuts
 
 - **LLM swap:** Groq used instead of Claude API due to billing requirements
-- **KB matching:** Uses keyword matching instead of vector/semantic search — 
-  a production system would use embeddings for better accuracy
-- **Ticket management:** SQLite used instead of a full tool like Plane or Zammad — 
-  sufficient for demo purposes
-- **No authentication:** No login/auth layer — would be needed in production
-- **Web fallback:** Not implemented due to time constraints — 
-  the AI model handles out-of-KB queries directly instead
+- **KB matching:** Keyword-based matching instead of vector/semantic search —
+  a production system would use embeddings (e.g. ChromaDB + OpenAI embeddings)
+  for far better accuracy
+- **Anti-hallucination:** Handled via strict system prompt and low temperature 
+  (0.1) — not a guarantee, users are warned to verify AI answers with policy docs
+- **Web fallback:** AI responses are labelled "🌐 From Web / AI" to indicate 
+  they are not from official company KB — a true web search layer would use 
+  DuckDuckGo or SerpAPI
+- **KB feedback loop:** Implemented as an admin UI within the chat — in 
+  production this would be a separate admin panel with authentication
+- **No authentication:** No login layer — needed in production
+- **Ticket management:** SQLite used instead of Plane/Zammad — sufficient for demo
+
+## 📚 Knowledge Base
+
+20 pre-loaded health insurance Q&A entries covering:
+deductibles, claims, physiotherapy, cashless hospitalisation, dependents,
+reimbursement timelines, required documents, maternity, pre-existing diseases,
+network hospitals, sum insured, renewals, no-claim bonus, dental, mental health,
+co-payment, ambulance, porting, daycare treatments, and customer support contact.
 
 ## 👤 Author
 
