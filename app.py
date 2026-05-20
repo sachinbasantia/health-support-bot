@@ -6,17 +6,15 @@ from datetime import datetime
 from groq import Groq
 
 # ── Page config ──────────────────────────────────────────────
-st.set_page_config(
-    page_title="HealthSure Support",
-    page_icon="🏥",
-    layout="centered"
-)
+st.set_page_config(page_title="HealthSure Support", page_icon="🏥", layout="centered")
+
 
 # ── Load knowledge base ───────────────────────────────────────
 def load_knowledge_base():
     with open("knowledge_base.json", "r") as f:
         data = json.load(f)
     return data["faqs"]
+
 
 # ── Search KB for matching FAQ ────────────────────────────────
 def search_knowledge_base(user_query, faqs):
@@ -27,6 +25,7 @@ def search_knowledge_base(user_query, faqs):
             if keyword.lower() in query_lower:
                 return faq["answer"]
     return None
+
 
 # ── Call Groq AI ──────────────────────────────────────────────
 def ask_groq(user_query, chat_history):
@@ -47,22 +46,17 @@ for specific details."""
 
     # Add previous chat history for context
     for msg in chat_history[-6:]:  # last 6 messages for context
-        messages.append({
-            "role": msg["role"],
-            "content": msg["content"]
-        })
+        messages.append({"role": msg["role"], "content": msg["content"]})
 
     # Add current question
     messages.append({"role": "user", "content": user_query})
 
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
-        messages=messages,
-        max_tokens=500,
-        temperature=0.3
+        model="llama-3.1-8b-instant", messages=messages, max_tokens=500, temperature=0.3
     )
 
     return response.choices[0].message.content
+
 
 # ── Save ticket to SQLite ─────────────────────────────────────
 def create_ticket(chat_history):
@@ -80,20 +74,23 @@ def create_ticket(chat_history):
     """)
 
     # Format conversation for storage
-    conversation_text = "\n".join([
-        f"{msg['role'].upper()}: {msg['content']}"
-        for msg in chat_history
-    ])
+    conversation_text = "\n".join(
+        [f"{msg['role'].upper()}: {msg['content']}" for msg in chat_history]
+    )
 
-    cursor.execute("""
+    cursor.execute(
+        """
         INSERT INTO tickets (timestamp, conversation, status)
         VALUES (?, ?, ?)
-    """, (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), conversation_text, "open"))
+    """,
+        (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), conversation_text, "open"),
+    )
 
     ticket_id = cursor.lastrowid
     conn.commit()
     conn.close()
     return ticket_id
+
 
 # ── UI Starts Here ────────────────────────────────────────────
 st.title("🏥 HealthSure Customer Support")
@@ -127,10 +124,7 @@ if user_input:
         st.markdown(user_input)
 
     # Save user message
-    st.session_state.messages.append({
-        "role": "user",
-        "content": user_input
-    })
+    st.session_state.messages.append({"role": "user", "content": user_input})
 
     # Try KB first
     kb_answer = search_knowledge_base(user_input, faqs)
@@ -141,11 +135,9 @@ if user_input:
             st.markdown(kb_answer)
             st.caption("✅ Answered from Knowledge Base")
 
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": kb_answer,
-            "label": "KB"
-        })
+        st.session_state.messages.append(
+            {"role": "assistant", "content": kb_answer, "label": "KB"}
+        )
 
     else:
         # Fall back to Groq AI
@@ -155,11 +147,9 @@ if user_input:
             st.markdown(ai_answer)
             st.caption("🤖 Answered by AI (Groq / Llama 3)")
 
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": ai_answer,
-            "label": "AI"
-        })
+        st.session_state.messages.append(
+            {"role": "assistant", "content": ai_answer, "label": "AI"}
+        )
 
 # ── Ticket Section ────────────────────────────────────────────
 if len(st.session_state.messages) > 0:
@@ -170,7 +160,11 @@ if len(st.session_state.messages) > 0:
         if st.button("🎫 Raise a Support Ticket", use_container_width=True):
             ticket_id = create_ticket(st.session_state.messages)
             st.session_state.ticket_raised = True
-            st.success(f"✅ Ticket #{ticket_id} raised successfully! Our team will get back to you within 24 hours.")
+            st.success(
+                f"✅ Ticket #{ticket_id} raised successfully! Our team will get back to you within 24 hours."
+            )
             st.balloons()
     else:
-        st.success("🎫 Your support ticket has been raised. Our team will reach out soon.")
+        st.success(
+            "🎫 Your support ticket has been raised. Our team will reach out soon."
+        )
