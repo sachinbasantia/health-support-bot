@@ -1,4 +1,4 @@
-# 🏥 HealthSure — AI-Powered Customer Support Bot
+# 🏥 Healthcare Assistant — AI-Powered Customer Support Bot
 
 > **Built as part of the DevX Labs Coding Assessment**  
 > ⚠️ This is a demo-grade prototype built within a 3–4 hour constraint. It is not production-ready. All architectural decisions reflect intentional trade-offs made for speed of delivery. Limitations vs. a production system are documented explicitly at the bottom.
