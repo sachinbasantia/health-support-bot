@@ -216,7 +216,7 @@ This is a demo prototype. The following limitations are intentional trade-offs, 
 | Area | Demo Approach | Production Approach |
 |---|---|---|
 | **LLM** | Groq / Llama 3.1 (free) | Claude API or GPT-4 with guardrails |
-| **KB Search** | Keyword matching | Vector embeddings (ChromaDB + embedding model) |
+| **KB Search** | Keyword matching can produce false positives  | Vector embeddings (ChromaDB + embedding model) more accurate |
 | **KB Scale** | 20 entries in JSON | Thousands of entries in a vector DB |
 | **Ticket Storage** | SQLite (single file) | PostgreSQL with proper indexing |
 | **Ticketing Tool** | Custom SQLite tables | Plane, Zammad, or Zendesk with full workflow |
