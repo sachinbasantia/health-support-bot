@@ -15,7 +15,7 @@
 
 ## 📌 What This Does
 
-HealthSure is an end-to-end AI-powered customer support platform for a health insurance company. It reduces human agent load by deflecting common queries through an intelligent chat interface and only escalating to ticketed support when necessary.
+Healthcare Assistant bot is an end-to-end AI-powered customer support platform for a health insurance company. It reduces human agent load by deflecting common queries through an intelligent chat interface and only escalating to ticketed support when necessary.
 
 ### Customer Flow
 ```
