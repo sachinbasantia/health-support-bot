@@ -17,14 +17,14 @@
     {
       "id": 3,
       "question": "Is physiotherapy covered?",
-      "keywords": ["physiotherapy", "physio", "sessions", "wellness", "covered"],
+      "keywords": ["physiotherapy", "physio", "sessions", "wellness" ],
       "answer": "Physiotherapy is covered up to 20 sessions per year under the Wellness add-on plan. Check if your plan includes this add-on.",
       "source": "KB"
     },
     {
       "id": 4,
       "question": "What is the cashless hospitalisation process?",
-      "keywords": ["cashless", "hospitalisation", "network hospital", "pre-authorisation", "insurance card"],
+      "keywords": ["cashless", "hospitalisation", "insurance card"],
       "answer": "Present your insurance card at any network hospital. The hospital will coordinate directly with us for pre-authorisation.",
       "source": "KB"
     },
