@@ -1,6 +1,5 @@
 # 🏥 Healthcare Assistant — AI-Powered Customer Support Bot
-
-> **Built as part of the DevX Labs Coding Assessment**  
+  
 > ⚠️ This is a demo-grade prototype built within a 3–4 hour constraint. It is not production-ready. All architectural decisions reflect intentional trade-offs made for speed of delivery. Limitations vs. a production system are documented explicitly at the bottom.
 
 ---
@@ -255,7 +254,7 @@ Deductibles · Claims filing · Physiotherapy coverage · Cashless hospitalisati
 
 This project was built using AI-assisted development — specifically using Claude for architecture decisions, code generation, and debugging, and Replit's agent for execution. All product decisions, tool choices, trade-offs, and the architectural reasoning documented above reflect independent judgment.
 
-This reflects how modern product and DevX work actually gets done — defining the problem clearly, making pragmatic tool decisions, resolving blockers (API billing constraints, deprecated model versions, port configuration issues), and shipping a working end-to-end system within the time constraint.
+This reflects how modern product work actually gets done — defining the problem clearly, making pragmatic tool decisions, resolving blockers (API billing constraints, deprecated model versions, port configuration issues), and shipping a working end-to-end system within the time constraint.
 
 The choice to use Groq over Claude, JSON over a vector DB, and SQLite over Plane were all conscious decisions made with full awareness of the trade-offs — not defaults taken out of ignorance.
 
@@ -263,6 +262,5 @@ The choice to use Groq over Claude, JSON over a vector DB, and SQLite over Plane
 
 ## 👤 Author
 
-**Sachin Basantia**  
-Built for DevX Labs Coding Assessment  
+**Sachin Basantia**   
 [github.com/sachinbasantia](https://github.com/sachinbasantia)
